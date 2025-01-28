@@ -20,7 +20,7 @@ from src.utils import save_object,model_evaluate
 ##from src.utils2 import evaluate_models
 @dataclass
 class ModelTrainerConfig:
-    trained_model_path:str = os.path.join("artifacts","model.pkl")
+    trained_model_path:str = os.path.join("model.pkl")
 
 class ModelTrainer:
     def __init__(self):
@@ -85,13 +85,15 @@ class ModelTrainer:
 
             if max_accuracy<0.6:
                 raise StudentException("There is no best machine learning model we found")
-            y_pred = best_model.predict(x_test)
-            f1_score_value = f1_score(y_test,y_pred)
+            y_pred_test = best_model.predict(x_test)
+            f1_score_value_test = f1_score(y_test,y_pred_test)
+            y_pred_train = best_model.predict(x_train)
+            f1_score_value_train = f1_score(y_train,y_pred_train)
             logging.info("Saving my best machine learning model")
             save_object(self.model_trainer_config.trained_model_path,best_model)
 
 
-            return (f1_score_value,self.model_trainer_config.trained_model_path)
+            return (f1_score_value_train,f1_score_value_test,self.model_trainer_config.trained_model_path)
             
         
         

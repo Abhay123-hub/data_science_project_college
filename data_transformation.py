@@ -18,7 +18,7 @@ target_column = "passed"
 ## creating the data transformation config
 @dataclass
 class DataTransformationConfig:
-   processor_obj:str = os.path.join("artifacts","processor.pkl")
+   processor_obj:str = os.path.join("processor.pkl")
 
 
 

@@ -1,10 +1,5 @@
 numpy 
 pandas
-python-dotenv
-certifi
-pymongo
-pymongo[srv]
-streamlit
 scikit-learn
-ipykernel
-matplotlib
+fastapi
+uvicorn

@@ -48,8 +48,9 @@ if __name__ =="__main__":
     obj2 =  DataTransformation()
     train_arr,test_arr,_ = obj2.initiate_data_transformation(train_path=train_path,test_path=test_path)
     obj3 = ModelTrainer()
-    f1_score,_ = obj3.initiate_model_trainer(train_arr=train_arr,test_arr=test_arr)
-    print(f1_score)
+    f1_score_train,f1_score_test,_ = obj3.initiate_model_trainer(train_arr=train_arr,test_arr=test_arr)
+    print("train",f1_score_train)
+    print("test",f1_score_test)
 
   
     

@@ -49,3 +49,19 @@ def load_object(path):
     except Exception as e:
         raise StudentException(e,sys)
     
+
+import pandas as pd
+import os
+import pickle
+
+def json_to_df(json_data):
+    """
+    Converts JSON data into a Pandas DataFrame.
+    """
+    try:
+        df = pd.DataFrame(json_data)
+        return df
+    except Exception as e:
+        raise ValueError(f"Error converting JSON to DataFrame: {str(e)}")
+
+
